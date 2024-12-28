@@ -21,6 +21,9 @@
 
  ```
 
+
  - once you added the above db config , go to your src folder from terminal and execute `npx sequelize db:create`
+
+
 
 
