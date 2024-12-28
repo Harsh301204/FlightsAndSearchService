@@ -1,18 +1,24 @@
-/ 
-    - src/
+# Welcome to Flight Search Service
 
-        index.js // server
-        models/
-        controllers/
-        middlewares/
-        services/
-        utils/
-        config/
-        repository/
+### Project Setup
 
-    - tests/
+- clone the project to your local
+- Execute `npm install` on the same path as of the your root directory of the downloaded Project
+- create a `.env` file in root directory and add the following environment variables
+    - `PORT = 3000`
+- Inside the `src/config` folder , create a new file `config.json` with the following peice of json
 
-    - Static/
+ ```
+{
+  "development": {
+    "username": <YOUR DB USERNAME>,
+    "password": <YOUR DB PASSWORD>,
+    "database": "FlightSearch_DataBase_Local",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
 
-    -Temp/
+ ```
+
 
