@@ -30,7 +30,7 @@ class CityRepository {
         }
     }
 
-    async UpdateCity(CityId , data){
+    async UpdateCity(CityId , data){    // here data is the object and includes all the data we want to update
         try {
             const City = await City.update(data , {
                 where : { 
