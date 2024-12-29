@@ -46,11 +46,11 @@ class CityRepository {
 
     async GetCity(CityId){
         try {
-            // const City = await City.findOne({ where : {
-            //     id : CityId
-            // }})
+            const City = await city.findOne({ where : {
+                id : CityId
+            }})
 
-            const City = await city.findByPk(CityId)          //  no need for where here , it will just search with respect to primary key
+            // const City = await city.findByPk(CityId)          //  no need for where here , it will just search with respect to primary key
             return City;
         } catch (error) {
             console.log("Something went wrong in repository layer while getting a city")
