@@ -1,6 +1,7 @@
 const express = require('express')
 const BodyParser = require('body-parser')
 // require('dotenv').config()  we shifted this to ServerConfig file
+const APIrout = require('./routes/index.js')
 
 const { PORT } = require('./Config/ServerConfig.js')
 
@@ -12,6 +13,7 @@ const SetupAndStartServer = async () => {
 
     app.use(BodyParser.json())
     app.use(BodyParser.urlencoded({extended : true}))
+    app.use('/api' , APIrout)
 
     app.listen(PORT, async () => {
         console.log(`Server Started on Port ${PORT}`);
