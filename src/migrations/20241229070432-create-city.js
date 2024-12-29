@@ -13,6 +13,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull : false,
         unique : true
+        // defaultValue : "Haryana"
         
       },
       createdAt: {

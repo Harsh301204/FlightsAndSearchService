@@ -1,9 +1,10 @@
 const { city } = require('../models/index')
 
 class CityRepository {
+
     async CreateCity({ name }) { // created a object with a key name by this synatax we dont need to call obj.name instead we can call simply name 
         try {
-            const City = city.create({ name });
+            const City = city.create({name});
             // Here technically name : name second name is parameter we are passing and first name is the prperty of the city from the city.js from models 
 
             return City;
@@ -16,7 +17,7 @@ class CityRepository {
 
     async DeleteCity(CityId) {
         try {
-            await City.destroy({
+            await city.destroy({
                 where: {
                     id: CityId
                     // using where just to delete a city with a certain id just like we did using a raw query in mysql
@@ -32,7 +33,7 @@ class CityRepository {
 
     async UpdateCity(CityId , data){    // here data is the object and includes all the data we want to update
         try {
-            const City = await City.update(data , {
+            const City = await city.update(data , {
                 where : { 
                     id : CityId
                 }
@@ -49,7 +50,7 @@ class CityRepository {
             //     id : CityId
             // }})
 
-            const City = await City.findByPk(CityId)          //  no need for where here , it will just search with respect to primary key
+            const City = await city.findByPk(CityId)          //  no need for where here , it will just search with respect to primary key
             return City;
         } catch (error) {
             console.log("Something went wrong in repository layer while getting a city")
