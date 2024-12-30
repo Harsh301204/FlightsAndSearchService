@@ -1,5 +1,6 @@
 const { city } = require('../models/index')
-
+const { Op } = require('sequelize')
+ 
 class CityRepository {
 
     async CreateCity({ name }) { // created a object with a key name by this synatax we dont need to call obj.name instead we can call simply name 
@@ -58,10 +59,22 @@ class CityRepository {
         }
     }
 
-    async GetAllCities(){
+    async GetAllCities(filter){
         try {
+            if(filter.name){
+                const cities = await city.findAll({
+                    where : {
+                        name : {
+                            [Op.startsWith] : filter.name
+                        }
+                    }
+                })
+                return cities;
+            }
+
             const cities = await city.findAll()
             return cities;
+            
         } catch (error) {
             console.log("Something went wrong in repository layer while getting a city")
             throw {error}
