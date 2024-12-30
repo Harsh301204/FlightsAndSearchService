@@ -5,6 +5,10 @@ const APIrout = require('./routes/index.js')
 
 const { PORT } = require('./Config/ServerConfig.js')
 
+// const {Airpot , city } = require('./models/index.js') 
+const db = require('./models/index.js')
+
+
 
 const SetupAndStartServer = async () => {
 
@@ -17,7 +21,30 @@ const SetupAndStartServer = async () => {
 
     app.listen(PORT, async () => {
         console.log(`Server Started on Port ${PORT}`);
+
+        if(process.env.SYNC_DB) {
+            db.sequelize.sync({alter : true})
+        }
+
         
+        
+
+        // const airp = await city.findOne({
+        //     where: {
+        //         id : 10
+        //     }
+        // })
+        
+        // const airpots = await airp.getAirpots()
+        // const newAirpot = await Airpot.create({
+        //     name : 'Indira Gandhi International Airport',
+        //     CityId : 4
+            
+        // })
+        // await airp.addAirpot(newAirpot)
+        // //     // console.log(airpots)
+        //     console.log(airp , airpots)
+        // // console.log(airp)
         
         
     })

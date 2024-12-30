@@ -39,10 +39,18 @@
 
 
 ## Tables
-### City --> Id , Nmae , Created_at , Updated_at
-### Airport --> Id , Name , Address , City_Id , Created_at , Updated_at
+- City --> Id , Nmae , Created_at , Updated_at
+- Airport --> Id , Name , Address , City_Id , Created_at , Updated_at
 
 
 
+## Command to initialize a Model ( Creating a Table in Database)
+```
+ npx sequelize model:generate --name Airpot --attributes name:String,Address:String,CityId:integer
+```
 
+## Command to Create a seeder file 
+```
+ npx sequelize seed:generate --name add-airpots
+```
 
