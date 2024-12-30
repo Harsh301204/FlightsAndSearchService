@@ -38,6 +38,11 @@
 - One Airport can have many flights but a flight has only one airport
 
 
+## Tables
+### City --> Id , Nmae , Created_at , Updated_at
+### Airport --> Id , Name , Address , City_Id , Created_at , Updated_at
+
+
 
 
 
