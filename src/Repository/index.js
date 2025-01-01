@@ -1,5 +1,7 @@
 module.exports = {
-    CityRespository : require('./city_respository')
+    CityRespository : require('./city_respository'),
+    FlightRepository : require('./flight-repository'),
+    AirplaneRepository : require('./airplane_repository')
 }
 
 // This File is just to export all the repositories in one go 

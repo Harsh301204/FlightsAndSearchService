@@ -47,10 +47,10 @@ const SetupAndStartServer = async () => {
         //     console.log(airp , airpots)
         // // console.log(airp)
 
-        const  airplanes  = await Airplane.create({    // Here it got inserted with the capacity on its default value
-            ModelNumber : 'Lockheed C-130 Hercules'
+        // const  airplanes  = await Airplane.create({    // Here it got inserted with the capacity on its default value
+        //     ModelNumber : 'Lockheed C-130 Hercules'
 
-        })
+        // })
         
         
     })
