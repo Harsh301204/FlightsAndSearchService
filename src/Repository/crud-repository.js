@@ -1,7 +1,7 @@
-const {Airpot} = require('../models/index')
+// const {Airpot} = require('../models/index')
 class CrudRepository {
-    constructor() {
-        this.model = Airpot
+    constructor(model) {
+        this.model = model
     }
 
     async Create(data) {
