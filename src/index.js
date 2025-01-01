@@ -6,6 +6,7 @@ const APIrout = require('./routes/index.js')
 const { PORT } = require('./Config/ServerConfig.js')
 
 // const {Airpot , city } = require('./models/index.js') 
+const { Airplane } = require('./models/index.js')
 const db = require('./models/index.js')
 
 
@@ -45,6 +46,11 @@ const SetupAndStartServer = async () => {
         // //     // console.log(airpots)
         //     console.log(airp , airpots)
         // // console.log(airp)
+
+        const  airplanes  = await Airplane.create({    // Here it got inserted with the capacity on its default value
+            ModelNumber : 'Lockheed C-130 Hercules'
+
+        })
         
         
     })
