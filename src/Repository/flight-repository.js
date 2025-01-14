@@ -39,11 +39,11 @@ class FlightRepository {
         }
 
         if (data.maxPrice) {
-        //     Object.assign(filter, { price: { [Op.lte]: data.maxPrice } })
-        PriceFilter.push({ price: { [Op.lte]: data.maxPrice } })
+            //     Object.assign(filter, { price: { [Op.lte]: data.maxPrice } })
+            PriceFilter.push({ price: { [Op.lte]: data.maxPrice } })
         }
 
-        Object.assign(filter , {[Op.and] : PriceFilter})
+        Object.assign(filter, { [Op.and]: PriceFilter })
 
 
 
@@ -61,9 +61,16 @@ class FlightRepository {
 
     }
 
-    async GetFlight(flightId) {
+    async GetFlight(Flightid) {
         try {
-            const flight = await Flights.findByPk(flightId)
+
+            const flight = await Flights.findOne({
+                where: {
+                    id: Flightid
+                }
+            })
+
+
             return flight;
         } catch (error) {
             console.log("Something went wrong in repository layer while creating a city")

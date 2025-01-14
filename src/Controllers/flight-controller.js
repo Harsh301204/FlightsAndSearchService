@@ -54,7 +54,28 @@ const GetAll = async (req , res) => {
     }
 }
 
+const GetFlight = async (req , res) => {
+    try {
+        const flight = await flightService.getFlight(req.params.id)
+        return res.status(200).json({
+            data : flight,
+            success : true,
+            err : {},
+            message : "Successfully fetched the flight"
+        })
+    } catch(error) {
+        console.log("There is a error in the Controller Layer")
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: "Not able to Fetch the Flight Detail",
+            err: { error }
+        })
+    }
+}
+
 module.exports = {
     create,
-    GetAll
+    GetAll,
+    GetFlight
 }
