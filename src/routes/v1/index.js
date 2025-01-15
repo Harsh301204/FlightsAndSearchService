@@ -17,6 +17,8 @@ router.post('/flights' ,FlightMiddlewares.validateCreateFlight, FlightController
 router.get('/flights' , FlightController.GetAll)
 router.get('/flights/:id' , FlightController.GetFlight)
 
+router.patch('/flights/:id' , FlightController.updateFlight)
+
 router.post('/airport' , AirportController.create)
 
 
