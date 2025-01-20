@@ -49,6 +49,11 @@
  npx sequelize model:generate --name Airpot --attributes name:String,Address:String,CityId:integer
 ```
 
+## Routing
+- will be using express router
+
+
+
 ## Command to Create a seeder file 
 ```
  npx sequelize seed:generate --name add-airpots

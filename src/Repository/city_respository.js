@@ -34,11 +34,16 @@ class CityRepository {
 
     async UpdateCity(CityId , data){    // here data is the object and includes all the data we want to update
         try {
-            const City = await city.update(data , {
-                where : { 
-                    id : CityId
-                }
-            })
+            // const City = await city.update(data , {
+            //     where : { 
+            //         id : CityId
+            //     }
+            // })
+            // return City
+            const City = await city.findByPk(CityId)
+            City.name = data.name 
+            City.state = data.state
+            await City.save()
             return City
         } catch (error) {
             
