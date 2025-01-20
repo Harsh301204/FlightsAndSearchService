@@ -43,7 +43,7 @@
 - Airport --> Id , Name , Address , City_Id , Created_at , Updated_at
 
 
-
+- Model Names are generally singular
 ## Command to initialize a Model ( Creating a Table in Database)
 ```
  npx sequelize model:generate --name Airpot --attributes name:String,Address:String,CityId:integer

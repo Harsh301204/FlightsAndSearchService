@@ -3,9 +3,9 @@ const { Op } = require('sequelize')
  
 class CityRepository {
 
-    async CreateCity({ name }) { // created a object with a key name by this synatax we dont need to call obj.name instead we can call simply name 
+    async CreateCity(data) { // created a object with a key name by this synatax we dont need to call obj.name instead we can call simply name 
         try {
-            const City = city.create({name});
+            const City = city.create(data);
             // Here technically name : name second name is parameter we are passing and first name is the prperty of the city from the city.js from models 
 
             return City;

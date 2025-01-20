@@ -11,8 +11,8 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
-        allowNull : false
-        // unique : true
+        allowNull : false,
+        unique : true
         // defaultValue : "Haryana"
         
       },
@@ -25,6 +25,13 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
+    
+    await queryInterface.addColumn('cities' , 'state' , {
+      type : Sequelize.STRING,
+      allowNull : false,
+      defaultValue: "Punjab"
+    })  
+    
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('cities');
