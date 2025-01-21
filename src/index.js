@@ -5,9 +5,11 @@ const APIrout = require('./routes/index.js')
 
 const { PORT } = require('./Config/ServerConfig.js')
 
-// const {Airpot , city } = require('./models/index.js') 
+const { Airpot, city } = require('./models/index.js')
 const { Airplane } = require('./models/index.js')
 const db = require('./models/index.js')
+
+const sequelize = require('sequelize')
 
 
 
@@ -17,30 +19,51 @@ const SetupAndStartServer = async () => {
     const app = express();
 
     app.use(BodyParser.json())
-    app.use(BodyParser.urlencoded({extended : true}))
-    app.use('/api' , APIrout)
+    app.use(BodyParser.urlencoded({ extended: true }))
+    app.use('/api', APIrout)
 
     app.listen(PORT, async () => {
         console.log(`Server Started on Port ${PORT}`);
 
-        if(process.env.SYNC_DB) {
-            db.sequelize.sync({alter : true})
+        if (process.env.SYNC_DB) {
+            db.sequelize.sync({ alter: true })
         }
 
-        
-        
+        const City = await city.findOne({
+            where : {
+                id : 6
+            }
+        })
 
+        console.log(City)
+        const Airpots = await City.getAirpots();
+        console.log(Airpots)
+
+        // const newAirport = await Airpot.create({
+        //     name : 'Cooch Behar Airport',
+        //     CityId : 5
+        // })
+
+        // await City.addAirpot(newAirport) 
         // const airp = await city.findOne({
         //     where: {
         //         id : 10
         //     }
         // })
-        
+
+        // const airpots = await city.findAll({
+        //     where: {
+        //         id: 6
+        //     },
+        //     include: [
+        //         { model: Airpot }]
+        // });
+        // console.log(airpots)
         // const airpots = await airp.getAirpots()
         // const newAirpot = await Airpot.create({
         //     name : 'Indira Gandhi International Airport',
         //     CityId : 4
-            
+
         // })
         // await airp.addAirpot(newAirpot)
         // //     // console.log(airpots)
@@ -51,8 +74,10 @@ const SetupAndStartServer = async () => {
         //     ModelNumber : 'Lockheed C-130 Hercules'
 
         // })
-        
-        
+
+
+      
+
     })
 }
 

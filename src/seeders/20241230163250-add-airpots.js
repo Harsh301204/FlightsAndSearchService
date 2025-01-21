@@ -14,30 +14,37 @@ module.exports = {
     */
      await queryInterface.bulkInsert('airpots' , [
       {
-        name : 'Chhatrapati Shivaji Maharaj International Airport',
-        CityId : 3,
+        name : 'Shaheed Bhagat Singh International Airport',
+        CityId : 1,
         createdAt : new Date(),
         updatedAt : new Date()
         
       },
 
       {
-        name : 'Aurangabad Airport',
-        CityId : 10,
+        name : 'Netaji Subhas Chandra Bose International Airport ',
+        CityId : 6,
         createdAt : new Date(),
         updatedAt : new Date()
       },
 
       {
-        name : 'Shirdi Airport',
-        CityId : 10,
+        name : 'Bagdogra International Airport',
+        CityId : 6,
         createdAt : new Date(),
         updatedAt : new Date()
       },
 
       {
-        name : 'Nashik International Airport',
-        CityId : 10,
+        name : 'Indira Gandhi International Airport',
+        CityId : 7,
+        createdAt : new Date(),
+        updatedAt : new Date()
+      },
+
+      {
+        name : 'Birsa Munda Airport',
+        CityId : 5,
         createdAt : new Date(),
         updatedAt : new Date()
       }

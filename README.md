@@ -52,10 +52,15 @@
 ## Routing
 - will be using express router
 
+## associating airport model with city model
+``` 
 
+```
 
 ## Command to Create a seeder file 
 ```
  npx sequelize seed:generate --name add-airpots
 ```
 
+- we can get our airpots directly from our city object after syncing the db , we will get some direct functions to get ,add and similair stuff to make 
+  things easy
