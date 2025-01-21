@@ -1,6 +1,6 @@
 const { city } = require('../models/index')
 const { Op } = require('sequelize')
- 
+
 class CityRepository {
 
     async CreateCity(data) { // created a object with a key name by this synatax we dont need to call obj.name instead we can call simply name 
@@ -32,7 +32,7 @@ class CityRepository {
         }
     }
 
-    async UpdateCity(CityId , data){    // here data is the object and includes all the data we want to update
+    async UpdateCity(CityId, data) {    // here data is the object and includes all the data we want to update
         try {
             // const City = await city.update(data , {
             //     where : { 
@@ -41,37 +41,41 @@ class CityRepository {
             // })
             // return City
             const City = await city.findByPk(CityId)
-            City.name = data.name 
+            City.name = data.name
             City.state = data.state
             await City.save()
             return City
         } catch (error) {
-            
+
         }
     }
 
-    async GetCity(CityId){
+    async GetCity(CityId) {
         try {
-            const City = await city.findOne({ where : {
-                id : CityId
-            }})
+            const City = await city.findOne({
+                where: {
+                    id: CityId
+                }
+            })
 
             // const City = await city.findByPk(CityId)          //  no need for where here , it will just search with respect to primary key
             return City;
         } catch (error) {
             console.log("Something went wrong in repository layer while getting a city")
-            throw {error}
+            throw { error }
         }
     }
 
-    async GetAllCities(filter){
+    async GetAllCities(filter) {
         try {
-            if(filter.name){
+            if (filter.name || filter.state) {
                 const cities = await city.findAll({
-                    where : {
-                        name : {
-                            [Op.startsWith] : filter.name
-                        }
+                    where: {
+                        [Op.or]: [{
+                            name: {
+                                [Op.startsWith]: filter.name
+                            }
+                        }, { state: {[Op.startsWith]: filter.state }}]
                     }
                 })
                 return cities;
@@ -79,10 +83,10 @@ class CityRepository {
 
             const cities = await city.findAll()
             return cities;
-            
+
         } catch (error) {
             console.log("Something went wrong in repository layer while getting a city")
-            throw {error}
+            throw { error }
         }
     }
 }
