@@ -16,10 +16,11 @@ router.patch('/city/:id',CityController.update)
 router.post('/flights' ,FlightMiddlewares.validateCreateFlight, FlightController.create)
 router.get('/flights' , FlightController.GetAll)
 router.get('/flights/:id' , FlightController.GetFlight)
-
 router.patch('/flights/:id' , FlightController.updateFlight)
 
 router.post('/airport' , AirportController.create)
+router.delete('/airport/:id' , AirportController.deleteAirport)
+router.patch('/airport/:id' , AirportController.updateAirport)
 
 
 module.exports = router 

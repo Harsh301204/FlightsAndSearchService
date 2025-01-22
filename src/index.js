@@ -29,11 +29,11 @@ const SetupAndStartServer = async () => {
             db.sequelize.sync({ alter: true })
         }
 
-        const City = await city.findOne({
-            where : {
-                id : 6
-            }
-        })
+        // const City = await city.findOne({
+        //     where : {
+        //         id : 6
+        //     }
+        // })
 
         // console.log(City)
         // const Airpots = await City.getAirpots();

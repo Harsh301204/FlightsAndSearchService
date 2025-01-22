@@ -13,7 +13,7 @@ const create = async (req, res) => {
             err: {}
         })
     } catch (error) {
-        console.log("There is a error in the Controller Layer")
+        console.log("There is a error in the Controller Layer " , error)
         return res.status(500).json({
             data: {},
             success: false,
