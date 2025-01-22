@@ -47,11 +47,13 @@ class CrudRepository {
     }
     async update(modelId, data) {
         try {
-            const result = await this.model.update(data, {
+            const result = await this.model.findOne({
                 where: {
                     id: modelId
                 }
             })
+            result.Address = data.Address;
+            await result.save()
             return result
         } catch (error) {
             console.log("Something went wrong with CRUD repo")
