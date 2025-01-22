@@ -64,3 +64,8 @@
 
 - we can get our airpots directly from our city object after syncing the db , we will get some direct functions to get ,add and similair stuff to make 
   things easy
+
+  
+## creating filter object for our flight search
+
+- so we will be creating a private function inside repo class

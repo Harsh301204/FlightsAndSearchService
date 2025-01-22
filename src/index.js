@@ -35,9 +35,9 @@ const SetupAndStartServer = async () => {
             }
         })
 
-        console.log(City)
-        const Airpots = await City.getAirpots();
-        console.log(Airpots)
+        // console.log(City)
+        // const Airpots = await City.getAirpots();
+        // console.log(Airpots)
 
         // const newAirport = await Airpot.create({
         //     name : 'Cooch Behar Airport',

@@ -16,12 +16,11 @@ class FlightRepository {
         //     Object.assign(filter, { price: { [Op.gte]: data.minPrice } })
 
         // }
-
+        
         // if (data.maxPrice) {
         //     Object.assign(filter, { price: { [Op.lte]: data.maxPrice } })
         // }
-
-
+        
         // if (data.minPrice && data.maxPrice) {
         //     Object.assign(filter, {
         //         [Op.and]: [
@@ -30,6 +29,7 @@ class FlightRepository {
         //         ]
         //     })
         // }
+
 
         let PriceFilter = []
         if (data.minPrice) {
@@ -55,7 +55,7 @@ class FlightRepository {
             const flight = await Flights.create(data)
             return flight;
         } catch (error) {
-            console.log("Something went wrong in repository layer while creating a city")
+            console.log("Something went wrong in repository layer while creating a Flight")
             throw { error }
         }
 
