@@ -48,14 +48,21 @@ const Update = async (req , res) => {
 
 const fetch = async (req , res) => {
     try {
-        
+        const airplane = await airplaneService.get(req.params.id)
+        return res.status(201).json({
+            data : airplane,
+            success : true,
+            err : {},
+            message : "Successfully Fetched a Airplane"
+        })
     } catch (error) {
-        
+        console.log(error)
     }
 }
 
 module.exports = {
     create,
     Delete,
-    Update
+    Update,
+    fetch
 }
