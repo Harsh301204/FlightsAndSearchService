@@ -1,4 +1,5 @@
 const { AirplaneService } = require('../Services/index')
+// const { update } = require('./City_Controller')
 
 const airplaneService = new AirplaneService()
 
@@ -32,9 +33,16 @@ const Delete = async (req , res) => {
 
 const Update = async (req , res) => {
     try {
-        
+        const airplane = await airplaneService.update(req.params.id ,req.body)
+        return res.status(201).json({
+            data : airplane,
+            success : true,
+            err : {},
+            message : "Successfully updated a Airplane"
+        })
+
     } catch (error) {
-        
+        console.log(error)
     }
 }
 
@@ -48,5 +56,6 @@ const fetch = async (req , res) => {
 
 module.exports = {
     create,
-    Delete
+    Delete,
+    Update
 }

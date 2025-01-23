@@ -7,6 +7,25 @@ class AirplaneRepository extends CrudRepository{
     }
 
 
+    async update(id , data){
+        try {
+            const result = await Airplane.findOne( {
+                where: {
+                    id: id
+                }
+            })
+
+            if(data.Capacity) result.Capacity = data.Capacity
+            if(data.ModelNumber) result.ModelNumber = data.ModelNumber
+            
+            await result.save()
+            return result
+        } catch (error) {
+            console.log("Something went wrong with CRUD repo")
+            throw error
+        }
+    }
+
 
     // async getAirplane(id)
     // {
