@@ -1,9 +1,5 @@
 const express = require('express')
-const  CityController =  require('../../Controllers/City_Controller')
-const FlightController = require('../../Controllers/flight-controller')
-const AirportController = require('../../Controllers/airport-controller')
-const AirplaneController = require('../../Controllers/airplane-controller')
-
+const { CityController , FlightController , AirplaneController , AirportController} = require('../../Controllers/index')
 const { FlightMiddlewares } = require('../../Middlewares/index')
 
 const router = express.Router()

@@ -36,7 +36,9 @@ class CityService {
     async GetCity(CityId) {
         try {
             const city =  await this.cityRepository.GetCity(CityId)
-            return city
+            if(city) return city
+            else throw {error : "this city does not exist"}
+            
         } catch (error) {
             console.log("Something went wrong in service layer")
             throw {error}

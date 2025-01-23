@@ -82,7 +82,7 @@ const get = async (req, res) => {
         return res.status(500).json({
             data: {},
             success: false,
-            message: "Not able to Delete a City",
+            message: "Not able to fetch the City",
             err: { error }
         })
 
