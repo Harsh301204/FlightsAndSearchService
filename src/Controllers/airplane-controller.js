@@ -18,9 +18,15 @@ const create = async (req , res) => {
 
 const Delete = async (req , res) => {
     try {
-        
+        await airplaneService.Delete(req.params.id)
+        return res.status(200).json({
+            data : true,
+            success : true,
+            err :  {},
+            message : "Successfully deleted a Airplane"
+        })
     } catch (error) {
-        
+        console.log(error)
     }
 }
 
@@ -41,5 +47,6 @@ const fetch = async (req , res) => {
 }
 
 module.exports = {
-    create
+    create,
+    Delete
 }

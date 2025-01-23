@@ -25,6 +25,7 @@ router.patch('/airport/:id' , AirportController.updateAirport)
 
 
 router.post('/airplane' , AirplaneController.create)
+router.delete('/airplane/:id' , AirplaneController.Delete)
 
 
 module.exports = router 

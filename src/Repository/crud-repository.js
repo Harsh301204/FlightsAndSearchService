@@ -16,7 +16,7 @@ class CrudRepository {
     }
     async Delete(modelId) {
         try {
-            await this.model.destoy({
+            await this.model.destroy({
                 where: {
                     id: modelId
                 }
