@@ -2,6 +2,7 @@ const express = require('express')
 const BodyParser = require('body-parser')
 // require('dotenv').config()  we shifted this to ServerConfig file
 const APIrout = require('./routes/index.js')
+const { rateLimit} = require('express-rate-limit')
 
 const { PORT } = require('./Config/ServerConfig.js')
 
@@ -11,13 +12,18 @@ const db = require('./models/index.js')
 
 const sequelize = require('sequelize')
 
+const limiter = rateLimit({
+	windowMs: 1 * 60 * 1000, // 15 minutes
+	limit: 3, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
+	
+})
 
 
 const SetupAndStartServer = async () => {
 
     // Creating the Express Object
     const app = express();
-
+    app.use(limiter)
     app.use(BodyParser.json())
     app.use(BodyParser.urlencoded({ extended: true }))
     app.use('/api', APIrout)
